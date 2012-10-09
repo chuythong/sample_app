@@ -3,11 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.8'
 gem 'pg', '0.12.2'
 gem 'bootstrap-sass', '2.0.4'
-
-group :development do
-  gem 'rspec-rails', '2.11.0'
-  gem 'guard-rspec', '1.2.1'  
-end
+gem 'bcrypt-ruby', '3.0.1'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -18,6 +14,12 @@ group :assets do
 end
 
 gem 'jquery-rails', '2.0.2'
+
+group :development do
+  gem 'rspec-rails', '2.11.0'
+  gem 'guard-rspec', '1.2.1'  
+  gem 'annotate', '2.5.0'  
+end
 
 group :test do
   gem 'capybara', '1.1.2'
