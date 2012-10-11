@@ -10,7 +10,7 @@ SampleApp::Application.routes.draw do
   #	/users/1/edit	edit	edit_user_path(user)	page to edit user with id 1
   #	/users/1		update	user_path(user)			update user
   #	/users/1		destroy	user_path(user)			delete user
-
+  resources :sessions, only: [:new, :create, :destroy]
   root to: "static_pages#home"
 
   # get "static_pages/help"
@@ -21,5 +21,7 @@ SampleApp::Application.routes.draw do
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
   match '/signup',  to: 'users#new'
-  
+  match '/signin',  to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
+
 end
