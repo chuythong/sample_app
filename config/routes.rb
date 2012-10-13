@@ -11,6 +11,7 @@ SampleApp::Application.routes.draw do
   #	/users/1		  update	user_path(user)			 update user
   #	/users/1		  destroy	user_path(user)			 delete user
   resources :sessions, only: [:new, :create, :destroy]
+  resources :microposts, only: [:create, :destroy]
   root to: "static_pages#home"
 
   # get "static_pages/help"
