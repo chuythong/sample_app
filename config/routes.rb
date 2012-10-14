@@ -1,6 +1,16 @@
 SampleApp::Application.routes.draw do
 
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+      # URI                 Action      Named route          
+      # ---                 ------      -----------          
+      # /users/1/following  following   following_user_path(1)
+      # /users/1/followers  followers   followers_user_path(1)
+    end
+
+  end
+  # resources :users
   # URI				    Action  Named route				   Purpose
   # ---				    ------	-----------				   -------
   # /users			  index	  users_path				   page to list all users
@@ -12,6 +22,7 @@ SampleApp::Application.routes.draw do
   #	/users/1		  destroy	user_path(user)			 delete user
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
   root to: "static_pages#home"
 
   # get "static_pages/help"
